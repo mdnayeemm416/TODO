@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'TODO APP',
       theme: ThemeData(
           textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme)),
-      home: const AddTask(),
+      home: const Home(),
     );
   }
 }

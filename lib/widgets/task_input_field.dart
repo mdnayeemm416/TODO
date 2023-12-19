@@ -44,6 +44,7 @@ class _TaskInputFieldState extends State<TaskInputField> {
               children: [
                 Expanded(
                     child: TextFormField(
+                  readOnly: widget.widget == null ? false : true,
                   controller: widget.controller,
                   decoration: InputDecoration(
                       hintText: widget.hint,
@@ -51,7 +52,10 @@ class _TaskInputFieldState extends State<TaskInputField> {
                           borderSide: BorderSide.none),
                       focusedBorder: const UnderlineInputBorder(
                           borderSide: BorderSide.none)),
-                ))
+                )),
+                widget.widget == null
+                    ? Container()
+                    : Container(child: widget.widget)
               ],
             ),
           )
