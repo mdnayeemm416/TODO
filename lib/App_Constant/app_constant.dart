@@ -13,7 +13,7 @@ class AppSize {
   static double height80(context) => height(context) * .08;
   static double height100(context) => height(context) * .1;
   static double height150(context) => height(context) * .15;
-  static double height200(context) => height(context) * .2;
+  static double height200(context) => height(context) * .22;
 
   static double width10(context) => width(context) * .010;
   static double width15(context) => width(context) * .015;

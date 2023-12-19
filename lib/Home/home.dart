@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/App_Constant/app_constant.dart';
 import 'package:todo_app/Home/Components/date_picker.dart';
-import 'package:todo_app/Home/Components/task_add_button.dart';
+import 'package:todo_app/Home/Components/task_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,6 +19,7 @@ class _HomeState extends State<Home> {
         body: Padding(
           padding: EdgeInsets.all(AppSize.height20(context)),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Column(
@@ -38,7 +39,18 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 10,
               ),
-              const DatePickerWidget()
+              const DatePickerWidget(),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                "Pending Tasks",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Expanded(child: TaskList())
             ],
           ),
         ),
