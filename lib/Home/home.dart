@@ -34,7 +34,6 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
-                const TaskAddButton(),
               ]),
               const SizedBox(
                 height: 10,

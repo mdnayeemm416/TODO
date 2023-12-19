@@ -41,6 +41,7 @@ dependencies:
   intl:
   date_picker_timeline:
   google_fonts:
+  font_awesome_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -80,11 +81,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Lato
-      fonts:
-        - asset: fonts/Lato-Regular.ttf
-          style: italic
+  # fonts:
+  #   - family: Lato
+  #     fonts:
+  #       - asset: fonts/Lato-Regular.ttf
+  #         style: italic
         # - asset: fonts/Schyler-Italic.ttf
           # style: italic
   #   - family: Trajan Pro
