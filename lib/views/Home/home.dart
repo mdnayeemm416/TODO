@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/App_Constant/app_constant.dart';
-import 'package:todo_app/Home/Components/date_picker.dart';
-import 'package:todo_app/Home/Components/task_list.dart';
+import 'package:todo_app/views/Home/Components/date_picker.dart';
+import 'package:todo_app/views/Home/Components/task_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

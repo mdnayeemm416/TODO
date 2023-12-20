@@ -1,11 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/Add_task/add_task.dart';
-import 'package:todo_app/Bottom_NavigationBar/bottom_navigation_bar.dart';
-import 'package:todo_app/Home/home.dart';
+import 'package:todo_app/views/Bottom_NavigationBar/bottom_navigation_bar.dart';
 
-void main() {
+
+Future<void> main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

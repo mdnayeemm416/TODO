@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:todo_app/Add_task/add_task.dart';
-import 'package:todo_app/Home/home.dart';
+import 'package:todo_app/views/Add_task/add_task.dart';
+import 'package:todo_app/views/Home/home.dart';
 
 void main() {
   runApp(MyApp());

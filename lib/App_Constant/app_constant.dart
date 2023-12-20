@@ -13,7 +13,7 @@ class AppSize {
   static double height80(context) => height(context) * .08;
   static double height100(context) => height(context) * .1;
   static double height150(context) => height(context) * .15;
-  static double height200(context) => height(context) * .22;
+  static double height200(context) => height(context) * .23;
 
   static double width10(context) => width(context) * .010;
   static double width15(context) => width(context) * .015;
@@ -29,4 +29,4 @@ const mediumText =
     TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black);
 const largeText = TextStyle(fontSize: 26, fontWeight: FontWeight.bold);
 const smallText =
-    TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey);
+    TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey);

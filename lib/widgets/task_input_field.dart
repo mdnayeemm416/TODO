@@ -46,8 +46,12 @@ class _TaskInputFieldState extends State<TaskInputField> {
                     child: TextFormField(
                   readOnly: widget.widget == null ? false : true,
                   controller: widget.controller,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                   decoration: InputDecoration(
                       hintText: widget.hint,
+                      hintStyle: const TextStyle(
+                          fontWeight: FontWeight.w300,
+                          color: Color.fromARGB(255, 187, 186, 186)),
                       enabledBorder: const UnderlineInputBorder(
                           borderSide: BorderSide.none),
                       focusedBorder: const UnderlineInputBorder(
