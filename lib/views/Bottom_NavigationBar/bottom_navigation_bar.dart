@@ -1,20 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:todo_app/views/Add_task/add_task.dart';
+import 'package:todo_app/views/CompletedTask/completed_taskList.dart';
 import 'package:todo_app/views/Home/home.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BottomNavBar(),
-    );
-  }
-}
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -39,10 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       body: PageView(
         controller: pageController,
-        children: const [
-          Home(),
-          Center(child: Text('Completed Page')),
-        ],
+        children: const [Home(), CompletedTaskList()],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(

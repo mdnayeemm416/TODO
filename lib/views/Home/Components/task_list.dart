@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:todo_app/App_Constant/app_constant.dart';
+import 'package:todo_app/services/firebase_services.dart';
+import 'package:todo_app/views/Add_task/edit_add_task.dart';
 import 'package:todo_app/widgets/menu_item.dart';
 
 class TaskList extends StatefulWidget {
@@ -94,11 +97,20 @@ class _TaskListState extends State<TaskList> {
                           }).toList();
                         }, onSelected: (String choice) {
                           if (choice == MenuItem.completed) {
-                            print("completed");
+                            moveto(
+                                taskList[index]["title"],
+                                taskList[index]["Description"],
+                                taskList[index]["Date"],
+                                taskList[index]["DeadLineDate"],
+                                taskList[index]["StartTime"],
+                                taskList[index]["EndTime"],
+                                "Completed Task",
+                                context);
+                            delete(taskList[index].id, "Task List", context);
                           } else if (choice == MenuItem.delete) {
-                            print("Delete");
+                            delete(taskList[index].id, "Task List", context);
                           } else if (choice == MenuItem.edit) {
-                            print("Edit");
+                            Get.to(EditAddTask(task:taskList[index]));
                           }
                         }),
                       )

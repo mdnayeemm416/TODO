@@ -1,47 +1,46 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/App_Constant/app_constant.dart';
+import 'package:todo_app/services/firebase_services.dart';
 import 'package:todo_app/controller/Add_Task_Controller/add_task_controller.dart';
 import 'package:todo_app/widgets/task_input_field.dart';
 
-class AddTask extends StatefulWidget {
-  const AddTask({super.key});
+class EditAddTask extends StatefulWidget {
+  final DocumentSnapshot task;
+  const EditAddTask({super.key, required this.task});
 
   @override
-  State<AddTask> createState() => _AddTaskState();
+  State<EditAddTask> createState() => _EditAddTaskState();
 }
 
-class _AddTaskState extends State<AddTask> {
+class _EditAddTaskState extends State<EditAddTask> {
   AddTaskController addTaskController = Get.put(AddTaskController());
+
   final TextEditingController title = TextEditingController();
   final TextEditingController description = TextEditingController();
   final TextEditingController date = TextEditingController();
   final TextEditingController deadLineDate = TextEditingController();
   final TextEditingController startTime = TextEditingController();
   final TextEditingController endTime = TextEditingController();
-
-  addTask() async {
-    FirebaseFirestore.instance
-        .collection("Task List")
-        .doc(DateTime.now().toString())
-        .set({
-      "title": title.text,
-      "Description": description.text,
-      "Date": date.text,
-      "DeadLineDate": deadLineDate.text,
-      "StartTime": startTime.text,
-      "EndTime": endTime.text,
-    });
+  @override
+  void initState() {
+    super.initState();
+    title.text = widget.task["title"];
+    description.text = widget.task["Description"];
+    date.text = widget.task["Date"];
+    deadLineDate.text = widget.task["DeadLineDate"];
+    startTime.text = widget.task["StartTime"];
+    endTime.text = widget.task["EndTime"];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Task", style: TextStyle(color: Colors.white)),
+        title: const Text("Edit Added Task",
+            style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: blueColor,
       ),
@@ -153,11 +152,20 @@ class _AddTaskState extends State<AddTask> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 50, vertical: 15)),
                   onPressed: () {
-                    addTask();
-                    Get.back();
+                    setState(() {});
+                    updateTask(
+                        widget.task.id,
+                        title.text,
+                        description.text,
+                        date.text,
+                        deadLineDate.text,
+                        startTime.text,
+                        endTime.text,
+                        "Task List",
+                        context);
                   },
                   child: const Text(
-                    "Create Task",
+                    "Update Task",
                     style: TextStyle(color: Colors.white),
                   ))
             ],
